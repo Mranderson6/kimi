@@ -1,4 +1,5 @@
 from datetime import timezone
+import os
 from django.db import models
 from django.urls import reverse
 
@@ -17,6 +18,7 @@ def categorieImage(instance, filename):
 class Categorie(models.Model):
     nom = models.CharField(max_length=250)
     image = models.ImageField(upload_to=categorieImage)
+    couleur = models.CharField(max_length=30,null= True, blank=True)
 
     def __str__(self) -> str:
         return self.nom
