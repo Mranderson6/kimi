@@ -16,21 +16,23 @@
 	<title>{% block title %}  {% endblock %}</title>
 
 	<!-- FAVICON AND TOUCH ICONS -->
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-	<link rel="apple-touch-icon" sizes="152x152" href="{% static 'images/Kimi(SVG).png' %}" />
-	<link rel="apple-touch-icon" sizes="120x120" href="{% static 'images/Kimi(SVG).png' %}" />
-	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/Kimi(SVG).png' %}" />
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-	<link rel="icon" href="images/apple-touch-icon.png" type="image/x-icon" />
+	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon" />
+	<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="152x152" href="{% static 'images/favicon.png' %}" />
+	<link rel="apple-touch-icon" sizes="120x120" href="{% static 'images/favicon.png' %}" />
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/favicon.png' %}" />
+	<link rel="apple-touch-icon" href="{% static 'images/favicon.png' %}" />
+	<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon" />
 
 	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;display=swap"
+	 <!-- <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;display=swap"
 		rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
 		rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
-		rel="stylesheet" />
+		rel="stylesheet" />  -->
+		<link href="https://fonts.cdnfonts.com/css/selino" rel="stylesheet">
+                
 
 	<!-- BOOTSTRAP CSS -->
 	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
@@ -64,9 +66,9 @@
 <body>
 	<!-- PRELOADER SPINNER
 		============================================= -->
-	<div id="loading" class="loading--theme">
-		<div id="loading-center"><span class="loader"></span></div>
-	</div>
+<!--	<div id="loading" class="loading&#45;&#45;theme">-->
+<!--		<div id="loading-center"><span class="loader"></span></div>-->
+<!--	</div>-->
 
 
 	<!-- PAGE CONTENT
@@ -79,27 +81,26 @@
 
 					<!-- MOBILE HEADER -->
 				    <div class="wsmobileheader clearfix">
-				    	<span class="smllogo"><img src="{% static 'images/Kimi(SVG).png' %}" alt="mobile-logo"></span>
+				    	<span class="smllogo"><img src="{% static 'images/Kimi(SVG).svg' %}" alt="mobile-logo"></span>
 				    	<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
 				 	</div>
 
 
 				 	<!-- NAVIGATION MENU -->
-				  	<div class="wsmainfull menu clearfix">
+				  	<div class="wsmainfull menu clearfix scroll">
 	    				<div class="wsmainwp clearfix">
 
 
 	    					<!-- HEADER BLACK LOGO -->
 	    					<div class="desktoplogo">
-	    						<a href="#hero-1" class="logo-black">
-	    							<img class="light-theme-img" src="{% static 'images/Kimi(SVG).png'  %}" alt="logo">
-	    							<img class="dark-theme-img" src="{% static 'images/Kimi(SVG)White.png'  %}" alt="logo">
+	    						<a href="/" class="logo-black">
+	    							<img class="dark-theme-img" src="{% static 'images/Kimi(SVG).svg'  %}" style="height: 40px; width: 164px !important; left: 0px !important; top: 16.5px !important;" alt="logo">
 	    						</a>
 	    					</div>
 
-	    					<!-- HEADER WHITE LOGO -->
+							<!-- HEADER WHITE LOGO -->
 	    					<div class="desktoplogo">
-	    						<a href="#hero-1" class="logo-white"><img src="{% static 'images/Kimi(SVG)White.png'  %}" alt="logo"></a>
+	    						<a href="/" class="logo-white"><img src="{% static 'images/Kimi(SVG)White.svg' %}" alt="logo"></a>
 	    					</div>
 
 
@@ -111,118 +112,34 @@
 									<a href="#" class="h-link">A Propos <span class="wsarrow"></span></a>
 									<ul class="sub-menu">
 										<li aria-haspopup="true">
-											<a href="#lnk-1">Qui sommes nous?</a>
+											<a href="{% url 'services:about' %}">Qui sommes nous?</a>
 										</li>
 										<li aria-haspopup="true">
 											<a href="#lnk-2">Nos Solutions</a>
 										</li>
-<!--										<li aria-haspopup="true">-->
-<!--											<a href="#lnk-3">How It Works</a>-->
-<!--										</li>-->
-<!--										<li aria-haspopup="true">-->
-<!--											<a href="#lnk-4">Integrations</a>-->
-<!--										</li>-->
-<!--										<li aria-haspopup="true">-->
-<!--											<a href="#reviews-1">Testimonials</a>-->
-<!--										</li>-->
 									</ul>
 								</li>
 
 								<!-- SIMPLE NAVIGATION LINK -->
 								<li class="nl-simple" aria-haspopup="true">
-									<a href="#features-12" class="h-link">Features</a>
-								</li>
-
-								<!-- MEGAMENU -->
-								<li aria-haspopup="true" class="mg_link">
-									<a href="#" class="h-link">Pages <span class="wsarrow"></span></a>
-									<div class="wsmegamenu w-75 clearfix">
-										<div class="container">
-											<div class="row">
-												<!-- MEGAMENU LINKS -->
-												<ul class="col-md-12 col-lg-3 link-list">
-													<li class="fst-li">
-														<a href="about.html">About Us</a>
-													</li>
-													<li><a href="team.html">Our Team</a></li>
-													<li>
-														<a href="careers.html">Careers <span
-																class="sm-info">4</span></a>
-													</li>
-													<li>
-														<a href="career-role.html">Career Details</a>
-													</li>
-													<li><a href="contacts.html">Contact Us</a></li>
-												</ul>
-
-												<!-- MEGAMENU LINKS -->
-												<ul class="col-md-12 col-lg-3 link-list">
-													<li><a href="features.html">Core Features</a></li>
-													<li class="fst-li">
-														<a href="projects.html">Our Projects</a>
-													</li>
-													<li>
-														<a href="project-details.html">Project Details</a>
-													</li>
-													<li><a href="reviews.html">Testimonials</a></li>
-													<li><a href="download.html">Download Page</a></li>
-												</ul>
-
-												<!-- MEGAMENU LINKS -->
-												<ul class="col-md-12 col-lg-3 link-list">
-													<li class="fst-li">
-														<a href="pricing-1.html">Pricing Page #1</a>
-													</li>
-													<li>
-														<a href="pricing-1.html">Pricing Page #2</a>
-													</li>
-													<li><a href="faqs.html">FAQs Page</a></li>
-													<li><a href="help-center.html">Help Center</a></li>
-													<li><a href="404.html">404 Page</a></li>
-												</ul>
-
-												<!-- MEGAMENU LINKS -->
-												<ul class="col-md-12 col-lg-3 link-list">
-													<li class="fst-li">
-														<a href="blog-listing.html">Blog Listing</a>
-													</li>
-													<li>
-														<a href="single-post.html">Single Blog Post</a>
-													</li>
-													<li><a href="login-2.html">Login Page</a></li>
-													<li><a href="signup-2.html">Signup Page</a></li>
-													<li>
-														<a href="reset-password.html">Reset Password</a>
-													</li>
-												</ul>
-											</div>
-											<!-- End row -->
-										</div>
-										<!-- End container -->
-									</div>
-									<!-- End wsmegamenu -->
-								</li>
-								<!-- END MEGAMENU -->
-
-								<!-- SIMPLE NAVIGATION LINK -->
-								<li class="nl-simple" aria-haspopup="true">
-									<a href="pricing-1.html" class="h-link">Pricing</a>
+									<a href="{% url 'services:services' %}" class="h-link">Nos Services</a>
 								</li>
 
 								<!-- SIMPLE NAVIGATION LINK -->
 								<li class="nl-simple" aria-haspopup="true">
-									<a href="#faqs-3" class="h-link">FAQs</a>
+									<a href="{% url 'services:blog' %}" class="h-link">Blog</a>
 								</li>
 
-								<!-- SIGN IN LINK -->
-								<li class="nl-simple reg-fst-link mobile-last-link" aria-haspopup="true">
-									<a href="login-2.html" class="h-link">Sign in</a>
-								</li>
-
-								<!-- SIGN UP BUTTON -->
+								<!-- SIMPLE NAVIGATION LINK -->
 								<li class="nl-simple" aria-haspopup="true">
-									<a href="signup-2.html" class="btn r-04 btn--theme hover--tra-black last-link">Sign
-										up</a>
+									<a href="{% url 'services:faq' %}" class="h-link">FAQs</a>
+								</li>
+
+
+
+								<!-- Contact BUTTON -->
+								<li class="nl-simple" aria-haspopup="true">
+									<a href="{% url 'services:contact' %}" class="btn r-04 btn--theme hover--tra-black last-link">Nous Contacter</a>
 								</li>
 							</ul>
 						</nav>
@@ -244,158 +161,144 @@
 {% block footer %}
 		<!-- FOOTER-3
 			============================================= -->
-		<footer id="footer-3" class="pt-100 footer">
-			<div class="container">
-				<!-- FOOTER CONTENT -->
-				<div class="row">
-					<!-- FOOTER LOGO -->
-					<div class="col-xl-3">
-						<div class="footer-info">
-							<img class="footer-logo" src="{% static 'images/Kimi(SVG).png' %}" alt="footer-logo" />
-							<img class="footer-logo-dark" src="{% static 'images/Kimi(SVG).png' %}" alt="footer-logo" />
-						</div>
-					</div>
+			<footer id="footer-3" class="pt-100 footer ft-3-ntr">
+				<div class="container">
 
-					<!-- FOOTER LINKS -->
-					<div class="col-sm-4 col-md-3 col-xl-2">
-						<div class="footer-links fl-1">
-							<!-- Title -->
-							<h6 class="s-17 w-700">Company</h6>
 
-							<!-- Links -->
-							<ul class="foo-links clearfix">
-								<li>
-									<p><a href="about.html">About Us</a></p>
-								</li>
-								<li>
-									<p><a href="careers.html">Careers</a></p>
-								</li>
-								<li>
-									<p><a href="blog-listing.html">Our Blog</a></p>
-								</li>
-								<li>
-									<p><a href="contacts.html">Contact Us</a></p>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- END FOOTER LINKS -->
+					<!-- FOOTER CONTENT -->
+					<div class="row">
 
-					<!-- FOOTER LINKS -->
-					<div class="col-sm-4 col-md-3 col-xl-2">
-						<div class="footer-links fl-2">
-							<!-- Title -->
-							<h6 class="s-17 w-700">Product</h6>
 
-							<!-- Links -->
-							<ul class="foo-links clearfix">
-								<li>
-									<p><a href="features.html">Integration</a></p>
-								</li>
-								<li>
-									<p><a href="reviews.html">Customers</a></p>
-								</li>
-								<li>
-									<p><a href="pricing-1.html">Pricing</a></p>
-								</li>
-								<li>
-									<p><a href="help-center.html">Help Center</a></p>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- END FOOTER LINKS -->
+						<!-- FOOTER LOGO -->
+						<div class="col-xl-3">
+							<div class="footer-info">
+								<img class="footer-logo" src="{% static 'images/Kimi(SVG)White.svg' %}" alt="footer-logo">
+								<img class="footer-logo-dark" src="{% static 'images/Kimi(SVG)White.svg' %}" alt="footer-logo">
+							</div>	
+						</div>	
 
-					<!-- FOOTER LINKS -->
-					<div class="col-sm-4 col-md-3 col-xl-2">
-						<div class="footer-links fl-3">
-							<!-- Title -->
-							<h6 class="s-17 w-700">Legal</h6>
 
-							<!-- Links -->
-							<ul class="foo-links clearfix">
-								<li>
-									<p><a href="terms.html">Terms of Use</a></p>
-								</li>
-								<li>
-									<p><a href="privacy.html">Privacy Policy</a></p>
-								</li>
-								<li>
-									<p><a href="cookies.html">Cookie Policy</a></p>
-								</li>
-								<li>
-									<p><a href="#">Site Map</a></p>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- END FOOTER LINKS -->
+						<!-- FOOTER LINKS -->
+						<div class="col-sm-4 col-lg-3 col-xl-2">
+							<div class="footer-links fl-1">
+							
+								<!-- Title -->
+								<h6 class="s-17 w-700">Company</h6>
 
-					<!-- FOOTER LINKS -->
-					<div class="col-sm-6 col-md-3">
-						<div class="footer-links fl-4">
-							<!-- Title -->
-							<h6 class="s-17 w-700">Connect With Us</h6>
+								<!-- Links -->
+								<ul class="foo-links clearfix">
+									<li><p><a href="about.html">About Us</a></p></li>
+									<li><p><a href="blog-listing.html">Our Blog</a></p></li>						
+									<li><p><a href="testimonials.html">Customers</a></p></li>	
+									<li><p><a href="#">Community</a></p></li>			
+								</ul>
 
-							<!-- Mail Link -->
-							<p class="footer-mail-link ico-25">
-								<a href="mailto:yourdomain@mail.com">hello@yourdomain.com</a>
-							</p>
-
-							<!-- Social Links -->
-							<ul class="footer-socials ico-25 text-center clearfix">
-								<li>
-									<a href="#"><span class="flaticon-facebook"></span></a>
-								</li>
-								<li>
-									<a href="#"><span class="flaticon-twitter"></span></a>
-								</li>
-								<li>
-									<a href="#"><span class="flaticon-github"></span></a>
-								</li>
-								<li>
-									<a href="#"><span class="flaticon-dribbble"></span></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- END FOOTER LINKS -->
-				</div>
-				<!-- END FOOTER CONTENT -->
-
-				<hr />
-				<!-- FOOTER DIVIDER LINE -->
-
-				<!-- BOTTOM FOOTER -->
-				<div class="bottom-footer">
-					<div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
-						<!-- FOOTER COPYRIGHT -->
-						<div class="col">
-							<div class="footer-copyright">
-								<p class="p-sm">
-									&copy; 2023 Martex. <span>All Rights Reserved</span>
-								</p>
 							</div>
-						</div>
+						</div>	<!-- END FOOTER LINKS -->	
 
-						<!-- FOOTER SECONDARY LINK -->
-						<div class="col">
-							<div class="bottom-secondary-link ico-15 text-end">
-								<p class="p-sm">
-									<a href="https://themeforest.net/user/dsathemes/portfolio">Made with <span
-											class="flaticon-heart"></span> by
-										@DSAThemes</a>
-								</p>
+
+						<!-- FOOTER LINKS -->
+						<div class="col-sm-4 col-lg-2">
+							<div class="footer-links fl-2">
+												
+								<!-- Title -->
+								<h6 class="s-17 w-700">Product</h6>
+
+								<!-- Links -->
+								<ul class="foo-links clearfix">
+									<li><p><a href="features.html">Integration</a></p></li>
+									<li><p><a href="download.html">What's New</a></p></li>	
+									<li><p><a href="pricing-1.html">Pricing</a></p></li>	
+									<li><p><a href="help-center.html">Help Center</a></p></li>			
+								</ul>
+
+							</div>	
+						</div>	<!-- END FOOTER LINKS -->	
+
+
+						<!-- FOOTER LINKS -->
+						<div class="col-sm-4 col-lg-3 col-xl-2">
+							<div class="footer-links fl-3">
+												
+								<!-- Title -->
+								<h6 class="s-17 w-700">Legal</h6>
+
+								<!-- Links -->
+								<ul class="foo-links clearfix">
+									<li><p><a href="terms.html">Terms of Use</a></p></li>										
+									<li><p><a href="privacy.html">Privacy Policy</a></p></li>
+									<li><p><a href="cookies.html">Cookie Policy</a></p></li>
+									<li><p><a href="#">Site Map</a></p></li>
+								</ul>
+
+							</div>	
+						</div>	<!-- END FOOTER LINKS -->	
+
+
+						<!-- FOOTER NEWSLETTER FORM -->
+						<div class="col-sm-10 col-md-8 col-lg-4 col-xl-3">
+							<div class="footer-form">
+
+								<!-- Title -->
+								<h6 class="s-17 w-700">Follow the Best</h6>
+
+								<!-- Newsletter Form Input -->
+								<form class="newsletter-form">
+											
+									<div class="input-group r-06">
+										<input type="email" class="form-control" placeholder="Email Address" required id="s-email">								
+										<span class="input-group-btn ico-15">
+											<button type="submit" class="btn color--theme">
+												<span class="flaticon-right-arrow-1"></span>
+											</button>
+										</span>
+									</div>
+
+									<!-- Newsletter Form Notification -->		
+									<label for="s-email" class="form-notification"></label>
+												
+								</form>
+														
+							</div>	
+						</div>	<!-- END FOOTER NEWSLETTER FORM -->
+
+
+					</div>	<!-- END FOOTER CONTENT -->
+
+
+					<hr>	<!-- FOOTER DIVIDER LINE -->
+
+
+					<!-- BOTTOM FOOTER -->
+					<div class="bottom-footer">
+						<div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
+
+
+							<!-- FOOTER COPYRIGHT -->
+							<div class="col">
+								<div class="footer-copyright">
+									<p class="p-sm">&copy; 2023 Martex. <span>All Rights Reserved</span></p>
+								</div>
 							</div>
-						</div>
-					</div>
-					<!-- End row -->
-				</div>
-				<!-- END BOTTOM FOOTER -->
-			</div>
-			<!-- End container -->
-		</footer>
-		<!-- END FOOTER-3 -->
+
+
+							<!-- FOOTER SOCIALS -->
+							<div class="col">
+								<ul class="bottom-footer-socials ico-20 text-end">
+									<li><a href="#"><span class="flaticon-facebook"></span></a></li>
+									<li><a href="#"><span class="flaticon-twitter"></span></a></li>
+									<li><a href="#"><span class="flaticon-instagram"></span></a></li>
+									<li><a href="#"><span class="flaticon-youtube"></span></a></li>
+								</ul>
+							</div>
+
+
+						</div>  <!-- End row -->
+					</div>	<!-- END BOTTOM FOOTER -->
+
+
+				</div>     <!-- End container -->	
+			</footer>   <!-- END FOOTER-3 -->
 	</div>
 	<!-- END PAGE CONTENT -->
 {% endblock %}
