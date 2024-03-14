@@ -9,6 +9,4 @@ urlpatterns = [
     path('faq/', faq, name='faq'),
     path('A-propos-de-nous/', about, name='about'),
     path('services/', nosServices, name='services'),
-    path('blog/', blog, name='blog'),
-    path('blog/<int:id>/', blogDetails, name='detail-post'),
 ]

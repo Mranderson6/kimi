@@ -972,8 +972,8 @@ p.btns-group-txt span.txt-data a:hover {
 .white-scroll .scroll .hover--pink-500:hover,
 .black-scroll .scroll .hover--pink-500:hover {
   color: #fff!important;
-  border-color: #ff149c!important;
-  background-color: #ff149c!important;
+  border-color: #b21e2b!important;
+  background-color: #b21e2b!important;
 }
 
 .btn--pink-400, .hover--pink-400:hover,
@@ -2015,7 +2015,7 @@ p.video-txt-sm {
 .color--pink-500 li, 
 .color--pink-500 i, 
 .color--pink-500 span,
-.color--white .color--pink-500 { color: #ff149c!important; }
+.color--white .color--pink-500 { color: #b21e2b!important; }
 
 .color--pink-400, 
 .color--pink-400 h1, 
@@ -2511,7 +2511,7 @@ span.sm-info {
 .nav-green-400 .sm-info { background-color: #0fbc49; }
 .nav-green-300 .sm-info { background-color: #6fd792; }
 
-.nav-pink-500 .sm-info { background-color: #ff149c; }
+.nav-pink-500 .sm-info { background-color: #b21e2b; }
 .nav-pink-400 .sm-info { background-color: #b21e2b; }
 .nav-pink-300 .sm-info { background-color: #fcb5cc; }
 
@@ -2887,7 +2887,7 @@ span.sm-info {
 .wsmenu > .wsmenu-list.nav-pink-500 > li > ul.sub-menu > li > a:hover,
 .wsmenu > .wsmenu-list.nav-pink-500 > li > .wsmegamenu.w-75 ul.link-list > li > a:hover,
 .wsmenu > .wsmenu-list.nav-pink-500 > li > .wsmegamenu.halfmenu ul.link-list > li > a:hover {
-  color: #ff149c!important;
+  color: #b21e2b!important;
 }
 
 .wsmenu > .wsmenu-list.nav-pink-400 > li > ul.sub-menu > li > a:hover,
@@ -4873,7 +4873,7 @@ h5.h5-title {
 .cbox-2:hover .cbox-2-ico.bg--green-400 { color: #0fbc49; border-color: #0fbc49; }
 .cbox-2:hover .cbox-2-ico.bg--green-300 { color: #6fd792; border-color: #6fd792; }
 
-.cbox-2:hover .cbox-2-ico.bg--pink-500 { color: #ff149c; border-color: #ff149c; }
+.cbox-2:hover .cbox-2-ico.bg--pink-500 { color: #b21e2b; border-color: #b21e2b; }
 .cbox-2:hover .cbox-2-ico.bg--pink-400 { color: #b21e2b; border-color: #b21e2b; }
 .cbox-2:hover .cbox-2-ico.bg--pink-300 { color: #fcb5cc; border-color: #fcb5cc; }
 
@@ -5211,7 +5211,7 @@ h5.h5-title {
 .tabs-1.tabs--green-400, .tabs-1.tabs--green-400 li.current:hover { color: #0fbc49; border-color: #0fbc49; }
 .tabs-1.tabs--green-300, .tabs-1.tabs--green-300 li.current:hover { color: #6fd792; border-color: #6fd792; }
 
-.tabs-1.tabs--pink-500, .tabs-1.tabs--pink-500 li.current:hover { color: #ff149c; border-color: #ff149c; }
+.tabs-1.tabs--pink-500, .tabs-1.tabs--pink-500 li.current:hover { color: #b21e2b; border-color: #b21e2b; }
 .tabs-1.tabs--pink-400, .tabs-1.tabs--pink-400 li.current:hover { color: #b21e2b; border-color: #b21e2b; }
 .tabs-1.tabs--pink-300, .tabs-1.tabs--pink-300 li.current:hover { color: #fcb5cc; border-color: #fcb5cc; }
 
@@ -6866,7 +6866,7 @@ p.rbox-2-txt span {
 .switch-wrap input:checked + .switcher.switcher--green-400 { background-color: #0fbc49; border-color: #0fbc49; }
 .switch-wrap input:checked + .switcher.switcher--green-300 { background-color: #6fd792; border-color: #6fd792; }
 
-.switch-wrap input:checked + .switcher.switcher--pink-500 { background-color: #ff149c; border-color: #ff149c; }
+.switch-wrap input:checked + .switcher.switcher--pink-500 { background-color: #b21e2b; border-color: #b21e2b; }
 .switch-wrap input:checked + .switcher.switcher--pink-400 { background-color: #b21e2b; border-color: #b21e2b; }
 .switch-wrap input:checked + .switcher.switcher--pink-300 { background-color: #fcb5cc; border-color: #fcb5cc; }
 
@@ -10019,8 +10019,8 @@ body.theme--dark {
 .theme--dark .white-scroll .scroll .hover--pink-500:hover,
 .theme--dark .black-scroll .scroll .hover--pink-500:hover {
   color: #fff!important;
-  border-color: #ff149c!important;
-  background-color: #ff149c!important;
+  border-color: #b21e2b!important;
+  background-color: #b21e2b!important;
 }
 
 .theme--dark .btn--pink-400, 
@@ -10961,20 +10961,20 @@ body.theme--dark {
 .white-scroll .scroll .hover--theme:hover,
 .black-scroll .scroll .hover--theme:hover {
   color: #fff!important;
-  border-color: #e73971!important;
-  background-color: #e73971!important;
+  border-color: #b21e2b!important;
+  background-color: #b21e2b!important;
 }
 
 .theme--dark .white-scroll .scroll .hover--theme:hover {
   color: #fff!important;
-  border-color: #e73971!important;
-  background-color: #e73971!important;
+  border-color: #b21e2b!important;
+  background-color: #b21e2b!important;
 }
 
 .theme--dark .white-scroll .hover--theme:hover {
   color: #fff!important;
-  border-color: #e73971!important;
-  background-color: #e73971!important;
+  border-color: #b21e2b!important;
+  background-color: #b21e2b!important;
 }
 
 .color--theme, 

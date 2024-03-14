@@ -15,10 +15,17 @@
 	 					<div class="row d-flex align-items-center">
 
 									
+						{% for item in head_post %}
 							<!-- BLOG POST IMAGE -->
 				 			<div class="col-md-6">
 				 				<div class="blog-post-img">
-									<img class="img-fluid r-16" src="{% static 'images/blog/post-11-img.jpg' %}" alt="blog-post-image">
+									
+										{% for image in item.itemimage_set.all %}
+											{% if forloop.counter == 1 %}
+												<img class="img-fluid r-16" src="{{ image.image.url }}" alt="blog-post-image">
+											{% endif %}
+										{% endfor %}
+									
 								</div>	
 							</div>
 
@@ -28,26 +35,24 @@
 								<div class="blog-post-txt">
 
 									<!-- Post Tag -->
-									<span class="post-tag color--blue-400">Social Media Marketing</span>	
+									<span class="post-tag color--{{ item.categorie.couleur }}-400">{{ item.categorie }}</span>	
 
 									<!-- Post Link -->
 									<h3 class="s-38 w-700">
-										<a href="#">Congue magna tempor and ipsum Martex sapien turpis 
-										   laoreet augue
+										<a href="{{ item.get_absolute_url }}">{{ item.title }}
 										</a>
 									</h3>
 
 									<!-- Text -->
-									<p>Aliqum mullam blandit vitae and tempor sapien and donec lipsum gravida porta undo 
-										velna dolor libero a risus aliquet tempus posuere a tempor velna tempus posuere dolor
+									<p>{{ item.content | truncatechars:60 }}
 									</p>
 
 									<!-- Post Meta -->
 									<div class="blog-post-meta mt-30">
 										<ul class="post-meta-list ico-10">
-											<li><p class="w-500">By Martex Team</p></li>
+											<li><p class="w-500">Par <strong>{{ item.author }}</strong></p></li>
 											<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-											<li><p>Apr 28, 2023</p></li>
+											<li><p>{{ item.date_posted | date:'d M Y' }}</p></li>
 										</ul>
 									</div>
 
@@ -56,7 +61,8 @@
 
 
 						</div>   <!-- End row -->
-				 	</div>	<!-- END WIDE BLOG POST -->
+				 	</div>
+					 {% endfor %}	<!-- END WIDE BLOG POST -->
 
 
 				 	<!-- POSTS WRAPPER -->

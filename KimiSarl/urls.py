@@ -24,6 +24,7 @@ from services import views
 urlpatterns = [
     path('staff_ksarl/', admin.site.urls),
     path('', include('services.urls', namespace='Services')),
+    path('Blog/',include('blog.urls', namespace='Blog'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -14,3 +14,5 @@ class blogAdmin(admin.ModelAdmin):
 
 admin.site.register(BlogPost, blogAdmin)
 admin.site.register(Categorie)
+admin.site.register(clientMessage)
+admin.site.register(newsletter)

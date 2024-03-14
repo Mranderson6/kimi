@@ -18,14 +18,14 @@ def categorieImage(instance, filename):
 class Categorie(models.Model):
     nom = models.CharField(max_length=250)
     image = models.ImageField(upload_to=categorieImage)
-    couleur = models.CharField(max_length=30,null= True, blank=True)
+    couleur = models.CharField(max_length=30)
 
     def __str__(self) -> str:
         return self.nom
 
 
 class BlogPost(models.Model):
-    categorie = models.ForeignKey(Categorie, on_delete=models.CASCADE, blank=True, null=True)
+    categorie = models.ForeignKey(Categorie, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     content = models.TextField()
     date_posted = models.DateTimeField(auto_now= True)
@@ -35,7 +35,7 @@ class BlogPost(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse("services:detail-post", kwargs={"id": self.id})
+        return reverse("blog:detail-post", kwargs={"id": self.id})
     
     
 def _image(instance, filename):
@@ -50,3 +50,20 @@ class itemImage(models.Model):
     nom = models.CharField(max_length=50)
     image = models.ImageField(upload_to=_image)
     item = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+
+
+class newsletter (models.Model):
+    mail = models.EmailField()
+
+    def __str__init(self):
+        return self.mail
+    
+
+class clientMessage(models.Model):
+    nom = models.CharField(max_length=250)
+    mail = models.EmailField()
+    objet = models.CharField(max_length=250)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.nom

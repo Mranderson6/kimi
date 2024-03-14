@@ -21,8 +21,3 @@ def error_404(request, exception):
 def nosServices(request):
     return render(request, 'services/services.html')
 
-def blog(request):
-    return render(request, 'services/blog.html')
-
-def blogDetails(request, id):
-    return render(request, 'services/blogDetails.html',locals())
