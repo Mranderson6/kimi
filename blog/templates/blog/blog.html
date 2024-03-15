@@ -18,8 +18,7 @@
 						{% for item in head_post %}
 							<!-- BLOG POST IMAGE -->
 				 			<div class="col-md-6">
-				 				<div class="blog-post-img">
-									
+				 				<div class="blog-post-img">		
 										{% for image in item.itemimage_set.all %}
 											{% if forloop.counter == 1 %}
 												<img class="img-fluid r-16" src="{{ image.image.url }}" alt="blog-post-image">
@@ -61,15 +60,15 @@
 
 
 						</div>   <!-- End row -->
+						{% endfor %}
 				 	</div>
-					 {% endfor %}	<!-- END WIDE BLOG POST -->
+						<!-- END WIDE BLOG POST -->
 
 
 				 	<!-- POSTS WRAPPER -->
 					<div class="posts-wrapper">
 						<div class="row">
-
-
+							{% for item in sous_posts %}
 							<!-- BLOG POST #1 -->
 					 		<div class="col-md-6 col-lg-4">
 					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
@@ -77,7 +76,11 @@
 
 					 				<!-- BLOG POST IMAGE -->
 					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-1-img.jpg' %}" alt="blog-post-image">
+										{% for image in item.itemimage_set.all %}
+											{% if forloop == 1 %}
+												<img class="img-fluid r-16" src="{{ image.image.url }}" alt="blog-post-image">
+											{% endif %}
+										{% endfor %}
 									</div>	
 
 
@@ -85,26 +88,24 @@
 									<div class="blog-post-txt">
 
 										<!-- Post Tag -->
-										<span class="post-tag color--red-400">Product News</span>	
+										<span class="post-tag color--{{ item.categorie.couleur }}-400">{{ item.categorie }}</span>	
 
 										<!-- Post Link -->
 										<h6 class="s-20 w-700">
-											<a href="single-post.html">Aliqum mullam porta blandit: lacus and sapien 
-											   gravida
+											<a href="{{ item.get_absolute_url }}">{{ item.title }}
 											</a>
 										</h6>
 
 										<!-- Text -->
-										<p>Egestas luctus vitae augue and ipsum ultrice quisque in cursus lacus feugiat 
-											congue diam ultrice laoreet sagittis
+										<p>{{ item.content | truncatechars:30 }}
 										</p>
 
 										<!-- Post Meta -->
 										<div class="blog-post-meta mt-20">
 											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Martex Team</p></li>
+												<li><p class="p-sm w-500">Par {{ item.author }}</p></li>
 												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Apr 23, 2023</p></li>
+												<li><p class="p-sm">{{ item.date_posted | date:'d M Y' }}</p></li>
 											</ul>
 										</div>
 
@@ -113,93 +114,7 @@
 
 					 			</div>
 					 		</div>	<!-- END BLOG POST #1 -->
-
-
-							<!-- BLOG POST #2 -->
-					 		<div class="col-md-6 col-lg-4">
-					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
-
-
-					 				<!-- BLOG POST IMAGE -->
-					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-2-img.jpg' %}" alt="blog-post-image">
-									</div>	
-
-
-									<!-- BLOG POST TEXT -->
-									<div class="blog-post-txt">
-
-										<!-- Post Tag -->
-										<span class="post-tag color--green-400">Community</span>	
-
-										<!-- Post Link -->
-										<h6 class="s-20 w-700">
-											<a href="single-post.html">Porttitor cursus fusce neque CEO egestas cursus 
-												magna sapien and suscipit ipsum
-											</a>
-										</h6>
-
-										<!-- Text -->
-										<p>Aliqum mullam ipsum vitae and blandit vitae tempor sapien and donec lipsum</p>
-
-										<!-- Post Meta -->
-										<div class="blog-post-meta mt-20">
-											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Miranda Green</p></li>
-												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Apr 09, 2023</p></li>
-											</ul>
-										</div>
-
-									</div>	<!-- END BLOG POST TEXT -->
-									
-
-					 			</div>
-					 		</div>	<!-- END BLOG POST #2 -->
-
-
-							<!-- BLOG POST #3 -->
-					 		<div class="col-md-12 col-lg-4">
-					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
-
-
-					 				<!-- BLOG POST IMAGE -->
-					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-3-img.jpg' %}" alt="blog-post-image">
-									</div>	
-
-
-									<!-- BLOG POST TEXT -->
-									<div class="blog-post-txt">
-
-										<!-- Post Tag -->
-										<span class="post-tag color--violet-400">Freelancer Tips</span>	
-
-										<!-- Post Link -->
-										<h6 class="s-20 w-700">
-											<a href="single-post.html">Cubilia laoreet ipsum augue eget egestas Martex magna</a>
-										</h6>
-
-										<!-- Text -->
-										<p>Luctus vitae egestas augue and ipsum ultrice quisque in cursus lacus feugiat 
-											egets congue ultrice sagittis laoreet 
-										</p>
-
-										<!-- Post Meta -->
-										<div class="blog-post-meta mt-20">
-											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Helen J.</p></li>
-												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Apr 01, 2023</p></li>
-											</ul>
-										</div>
-
-									</div>	<!-- END BLOG POST TEXT -->
-									
-
-					 			</div>
-					 		</div>	<!-- END BLOG POST #3 -->
-
+							{% endfor %}
 
 						</div>
 					</div>	<!-- END POSTS WRAPPER -->
@@ -209,7 +124,7 @@
 					<div class="row">
 						<div class="col">
 							<div class="posts-category ico-20 wow fadeInUp">
-								<h4 class="s-34 w-700">Latest News <span class="flaticon-next"></span></h4>
+								<h4 class="s-34 w-700">Categories <span class="flaticon-next"></span></h4>
 							</div>
 						</div>
 					</div>
@@ -218,8 +133,7 @@
 					<!-- POSTS WRAPPER -->
 					<div class="posts-wrapper">
 						<div class="row">
-
-
+							{% for categorie in categories %}
 							<!-- BLOG POST #4 -->
 					 		<div class="col-md-6 col-lg-4">
 					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
@@ -227,209 +141,40 @@
 
 					 				<!-- BLOG POST IMAGE -->
 					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-4-img.jpg' %}" alt="blog-post-image">
+										<img class="img-fluid r-16" src="{{ categorie.image.url }}" alt="blog-post-image">
 									</div>	
 
 
 									<!-- BLOG POST TEXT -->
 									<div class="blog-post-txt">
 
-										<!-- Post Tag -->
-										<span class="post-tag color--pink-400">Tutorials</span>	
-
 										<!-- Post Link -->
-										<h6 class="s-20 w-700">
-											<a href="single-post.html">Phasellus blandit justo undo aliquam vitae molestie 
-												nunc sapien augue justo aliquet
+										<h6 class="s-20 w-700" class="color--pink-400">
+											<a href="{{ categorie.get_absolute_url }}">{{ categorie.nom }}
 											</a>
 										</h6>
-
-										<!-- Text -->
-										<p>Aliqum mullam ipsum vitae and blandit vitae tempor sapien and donec lipsum</p>
-
-										<!-- Post Meta -->
-										<div class="blog-post-meta mt-20">
-											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Miranda Green</p></li>
-												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Mar 20, 2023</p></li>
-											</ul>
-										</div>
 
 									</div>	<!-- END BLOG POST TEXT -->
 
 
 					 			</div>
 					 		</div>	<!-- END BLOG POST #4 -->
-
-
-							<!-- BLOG POST #5 -->
-					 		<div class="col-md-6 col-lg-4">
-					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
-
-
-					 				<!-- BLOG POST IMAGE -->
-					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-5-img.jpg' %}" alt="blog-post-image">
-									</div>	
-
-
-									<!-- BLOG POST TEXT -->
-									<div class="blog-post-txt">
-
-										<!-- Post Tag -->
-										<span class="post-tag color--violet-400">Freelancer Tips</span>	
-
-										<!-- Post Link -->
-										<h6 class="s-20 w-700">
-											<a href="single-post.html">Blandit justo phasellus undo aliquam diam molestie 
-											   vitae
-											</a>
-										</h6>
-
-										<!-- Text -->
-										<p>Luctus vitae egestas augue and ipsum ultrice quisque in cursus lacus feugiat 
-											egets congue ultrice sagittis laoreet 
-										</p>
-
-										<!-- Post Meta -->
-										<div class="blog-post-meta mt-20">
-											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Martex Team</p></li>
-												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Mar 13, 2023</p></li>
-											</ul>
-										</div>
-
-									</div>	<!-- END BLOG POST TEXT -->
-									
-
-					 			</div>
-					 		</div>	<!-- END BLOG POST #5 -->
-
-
-							<!-- BLOG POST #6 -->
-					 		<div class="col-md-12 col-lg-4">
-					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
-
-
-					 				<!-- BLOG POST IMAGE -->
-					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-6-img.jpg' %}" alt="blog-post-image">
-									</div>	
-
-
-									<!-- BLOG POST TEXT -->
-									<div class="blog-post-txt">
-
-										<!-- Post Tag -->
-										<span class="post-tag color--blue-400">Extensions</span>	
-
-										<!-- Post Link -->
-										<h6 class="s-20 w-700">
-											<a href="single-post.html">Cursus porttitor fusce neque CEO egestas cursus magna 
-												sapien and ipsum suscipit 
-											</a>
-										</h6>
-
-										<!-- Text -->
-										<p>Mullam ipsum aliqum vitae and blandit vitae tempor sapien and lipsum donec</p>
-
-										<!-- Post Meta -->
-										<div class="blog-post-meta mt-20">
-											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Martex Team</p></li>
-												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Feb 23, 2023</p></li>
-											</ul>
-										</div>
-
-									</div>	<!-- END BLOG POST TEXT -->
-									
-
-					 			</div>
-					 		</div>	<!-- END BLOG POST #6 -->
-
+							{% endfor %}
 
 						</div>  <!-- End row -->
 					</div>	<!-- END POSTS WRAPPER -->
 
 
-					<!-- SQUARE BLOG POST -->
-					<div class="blog-post square-post">
-						<div class="row">
-							<div class="col">
-
-
-								<!-- SQUARE BLOG POST WRAPPER -->
-								<div class="square-post-wrapper bg--black-400 block-shadow r-16 wow fadeInUp">
-									<div class="row d-flex align-items-center">
-
-
-										<!-- BLOG POST TEXT -->
-										<div class="col-md-6 order-last order-md-2">
-											<div class="blog-post-txt color--white">
-
-												<!-- Post Tag -->
-												<span class="post-tag color--pink-400">Video Tutorials</span>	
-
-												<!-- Post Link -->
-												<h4 class="s-34 w-700 mb-20">
-													<a href="single-post.html">Lipsum sodales sapien Martex aliquet blandit 
-													   augue gravida posuere
-													</a>
-												</h4>
-
-												<!-- Text -->
-												<p>Aliqum mullam blandit vitae and tempor sapien and donec lipsum gravida porta 
-													undo velna dolor libero risus aliquet tempus posuere vitae tempor
-												</p>
-
-												<!-- Post Meta -->
-												<div class="blog-post-meta mt-30">
-													<ul class="post-meta-list ico-10">
-														<li><p class="w-500">By Martex Team</p></li>
-														<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-														<li><p>Feb 12, 2023</p></li>
-													</ul>
-												</div>
-
-											</div>
-										</div>	
-
-
-										<!-- BLOG POST IMAGE -->
-										<div class="col-md-6 order-first order-md-2">
-							 				<div class="blog-post-img video-preview">
-
-							 					<!-- Play Icon --> 
-												<a class="video-popup1" href="https://www.youtube.com/embed/SZEflIVnhH8">				
-													<div class="video-btn video-btn-xl bg--pink-400 ico-90">	
-														<div class="video-block-wrapper"><span class="flaticon-play-button"></span></div>
-													</div>
-												</a>
-
-												<!-- Preview Image --> 
-							 					<img class="img-fluid" src="{% static 'images/blog/post-10-img.jpg' %}" alt="video-preview">
-
-											</div>	
-										</div>
-
-
-									</div>	  <!-- End row -->
-								</div>	<!-- END SQUARE BLOG POST WRAPPER -->
-
-
-							</div>
-						</div>	  <!-- End row -->
-					</div>	<!-- END SQUARE BLOG POST -->
+					<!-- SQUARE BLOG POST 
+						A remplir prochainement 
+						 END SQUARE BLOG POST -->
 
 
 					<!-- BLOG POSTS CATEGORY --> 
 					<div class="row">
 						<div class="col">
 							<div class="posts-category ico-20 wow fadeInUp">
-								<h4 class="s-34 w-700">All Stories <span class="flaticon-next"></span></h4>
+								<h4 class="s-34 w-700">Tout les articles <span class="flaticon-next"></span></h4>
 							</div>
 						</div>
 					</div>
@@ -439,7 +184,7 @@
 					<div class="posts-wrapper">
 						<div class="row">
 
-
+							{% for post in all_posts %}
 							<!-- BLOG POST #7 -->
 					 		<div class="col-md-6 col-lg-4">
 					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
@@ -447,7 +192,11 @@
 
 					 				<!-- BLOG POST IMAGE -->
 					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-7-img.jpg' %}" alt="blog-post-image">
+										{% for image in post.itemimage_set.all %}
+											{% if forloop.count == 1 %}
+											<img class="img-fluid r-16" src="{{ image.image.url }}" alt="blog-post-image">
+											{% endif %}
+										{% endfor %}
 									</div>	
 
 
@@ -455,26 +204,24 @@
 									<div class="blog-post-txt">
 
 										<!-- Post Tag -->
-										<span class="post-tag color--red-400">Product News</span>	
+										<span class="post-tag color--{{ post.categorie.couleur }}-400">{{ post.categorie }}</span>	
 
 										<!-- Post Link -->
 										<h6 class="s-20 w-700">
-											<a href="single-post.html">Phasellus blandit justo undo aliquam diam vitae 
-											   molestie
+											<a href="{{ post.get_absolute_url }}">{{ post.title }}
 											</a>
 										</h6>
 
 										<!-- Text -->
-										<p>Egestas luctus vitae augue and ipsum ultrice quisque in cursus lacus feugiat 
-											congue diam ultrice laoreet sagittis
+										<p>{{ post.content | truncatechars:30 }}
 										</p>
 
 										<!-- Post Meta -->
 										<div class="blog-post-meta mt-20">
 											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Martex Team</p></li>
+												<li><p class="p-sm w-500">Par {{ post.author }}</p></li>
 												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Feb 02, 2023</p></li>
+												<li><p class="p-sm">{{ post.date_posted | date:'d M Y' }}</p></li>
 											</ul>
 										</div>
 
@@ -483,94 +230,7 @@
 
 					 			</div>
 					 		</div>	<!-- END BLOG POST #7 -->
-
-
-							<!-- BLOG POST #8 -->
-					 		<div class="col-md-6 col-lg-4">
-					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
-
-
-					 				<!-- BLOG POST IMAGE -->
-					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-8-img.jpg' %}" alt="blog-post-image">
-									</div>	
-
-
-									<!-- BLOG POST TEXT -->
-									<div class="blog-post-txt">
-
-										<!-- Post Tag -->
-										<span class="post-tag color--violet-400">Freelancer Tips</span>	
-
-										<!-- Post Link -->
-										<h6 class="s-20 w-700">
-											<a href="single-post.html">Porttitor cursus fusce neque CEO egestas cursus 
-												magna sapien and suscipit ipsum
-											</a>
-										</h6>
-
-										<!-- Text -->
-										<p>Aliqum mullam ipsum vitae and blandit vitae tempor sapien and donec lipsum</p>
-
-										<!-- Post Meta -->
-										<div class="blog-post-meta mt-20">
-											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Miranda Green</p></li>
-												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Jan 26, 2023</p></li>
-											</ul>
-										</div>
-
-									</div>	<!-- END BLOG POST TEXT -->
-									
-
-					 			</div>
-					 		</div>	<!-- END BLOG POST #8 -->
-
-
-							<!-- BLOG POST #9 -->
-					 		<div class="col-md-12 col-lg-4">
-					 			<div class="blog-post mb-40 wow fadeInUp clearfix">	
-
-
-					 				<!-- BLOG POST IMAGE -->
-					 				<div class="blog-post-img mb-35">
-										<img class="img-fluid r-16" src="{% static 'images/blog/post-9-img.jpg' %}" alt="blog-post-image">
-									</div>	
-
-
-									<!-- BLOG POST TEXT -->
-									<div class="blog-post-txt">
-
-										<!-- Post Tag -->
-										<span class="post-tag color--green-400">Community</span>	
-
-										<!-- Post Link -->
-										<h6 class="s-20 w-700">
-											<a href="single-post.html">Aliqum mullam porta blandit: lacus and sapien 
-											   gravida
-											</a>
-										</h6>
-
-										<!-- Text -->
-										<p>Luctus vitae egestas augue and ipsum ultrice quisque in cursus lacus feugiat 
-											egets congue ultrice sagittis laoreet 
-										</p>
-
-										<!-- Post Meta -->
-										<div class="blog-post-meta mt-20">
-											<ul class="post-meta-list ico-10">
-												<li><p class="p-sm w-500">By Miranda Green</p></li>
-												<li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
-												<li><p class="p-sm">Jan 12, 2023</p></li>
-											</ul>
-										</div>
-
-									</div>	<!-- END BLOG POST TEXT -->
-									
-
-					 			</div>
-					 		</div>	<!-- END BLOG POST #9 -->
+							{% endfor %}
 
 
 						</div>  <!-- End row -->
@@ -610,51 +270,4 @@
 			<!-- DIVIDER LINE -->
 			<hr class="divider">
 
-
-
-
-			<!-- NEWSLETTER-1
-			============================================= -->
-			<section id="newsletter-1" class="newsletter-section">
-				<div class="newsletter-overlay">
-					<div class="container">
-						<div class="row d-flex align-items-center row-cols-1 row-cols-lg-2">
-
-
-							<!-- NEWSLETTER TEXT -->	
-							<div class="col">
-								<div class="newsletter-txt">	
-									<h4 class="s-34 w-700">Stay up to date with our news, ideas and updates</h4>	
-								</div>								
-							</div>
-
-
-							<!-- NEWSLETTER FORM -->
-							<div class="col">
-								<form class="newsletter-form">
-											
-									<div class="input-group">
-										<input type="email" autocomplete="off" class="form-control" placeholder="Your email address" required id="s-email">								
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn--theme hover--theme">Subscribe Now</button>
-										</span>										
-									</div>
-
-									<!-- Newsletter Form Notification -->	
-									<label for="s-email" class="form-notification"></label>
-												
-								</form>							
-							</div>	  <!-- END NEWSLETTER FORM -->
-
-
-						</div>	  <!-- End row -->
-					</div>    <!-- End container -->	
-				</div>     <!-- End newsletter-overlay -->
-			</section>	<!-- END NEWSLETTER-1 -->
-
-
-
-
-			<!-- DIVIDER LINE -->
-			<hr class="divider">
 {% endblock %}

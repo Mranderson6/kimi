@@ -114,9 +114,9 @@
 										<li aria-haspopup="true">
 											<a href="{% url 'services:about' %}">Qui sommes nous?</a>
 										</li>
-										<li aria-haspopup="true">
+										<!-- <li aria-haspopup="true">
 											<a href="#lnk-2">Nos Solutions</a>
-										</li>
+										</li> -->
 									</ul>
 								</li>
 
@@ -131,9 +131,9 @@
 								</li>
 
 								<!-- SIMPLE NAVIGATION LINK -->
-								<li class="nl-simple" aria-haspopup="true">
-									<a href="{% url 'services:faq' %}" class="h-link">FAQs</a>
-								</li>
+								<!-- <li class="nl-simple" aria-haspopup="true">
+									<a href="" class="h-link">FAQs</a>
+								</li> -->
 
 
 
@@ -215,13 +215,13 @@
 							<div class="footer-form">
 
 								<!-- Title -->
-								<h6 class="s-17 w-700">Follow the Best</h6>
+								<h6 class="s-17 w-700">Nous suivre</h6>
 
 								<!-- Newsletter Form Input -->
-								<form class="newsletter-form">
-											
-									<div class="input-group r-06">
-										<input type="email" class="form-control" placeholder="Email Address" required id="s-email">								
+								<form  method="post" action="{% url 'services:Home' %}">
+										{% csrf_token %}	
+									<div class="input-group r-06" style="background-color: white;">
+										<input type="email" name="email" class="form-control" placeholder="Email Address" required id="s-email" >								
 										<span class="input-group-btn ico-15">
 											<button type="submit" class="btn color--theme">
 												<span class="flaticon-right-arrow-1"></span>
@@ -260,10 +260,9 @@
 							<!-- FOOTER SOCIALS -->
 							<div class="col">
 								<ul class="bottom-footer-socials ico-20 text-end">
-									<li><a href="#"><span class="flaticon-facebook"></span></a></li>
+									<li><a href=""><span class="flaticon-facebook"></span></a></li>
 									<li><a href="#"><span class="flaticon-twitter"></span></a></li>
 									<li><a href="#"><span class="flaticon-instagram"></span></a></li>
-									<li><a href="#"><span class="flaticon-youtube"></span></a></li>
 								</ul>
 							</div>
 
@@ -315,30 +314,10 @@
 				console.log("normal mouse up:", e.which);
 			},
 		});
+
+		
 	</script>
 
-	<script>
-		$(function () {
-			$(".switch").click(function () {
-				$("body").toggleClass("theme--dark");
-				if ($("body").hasClass("theme--dark")) {
-					$(".switch").text("Light Mode");
-				} else {
-					$(".switch").text("Dark Mode");
-				}
-			});
-		});
-	</script>
-
-	<script>
-		$(document).ready(function () {
-			if ($("body").hasClass("theme--dark")) {
-				$(".switch").text("Light Mode");
-			} else {
-				$(".switch").text("Dark Mode");
-			}
-		});
-	</script>
 
 	<script src="{% static 'js/changer.js' %}"></script>
 	<script defer src="{% static 'js/styleswitch.js' %}"></script>

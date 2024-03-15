@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title %} KIMI SARL- Blog {% endblock %}
+
+{% block central %}
+<section id="blog-page" class="pb-60 inner-page-hero blog-page-section">
+    <div class="container">
+<!-- BLOG POSTS CATEGORY --> 
+        <div class="posts-category ico-20 wow fadeInUp">
+            <h4 class="s-34 w-700">Tout les articles de cette categories <span class="flaticon-next"></span></h4>
+        </div>
+
+<!-- POSTS WRAPPER -->
+<div class="posts-wrapper">
+    <div class="row">
+
+        {% for post in current_one.blogpost_set.all %}
+        <!-- BLOG POST #7 -->
+         <div class="col-md-6 col-lg-4">
+             <div class="blog-post mb-40 wow fadeInUp clearfix">	
+                 <!-- BLOG POST IMAGE -->
+                 <div class="blog-post-img mb-35">
+                    {% for image in post.itemimage_set.all %}
+                        {% if forloop.first %}
+                        <img class="img-fluid r-16" src="{{ image.image.url }}" alt="blog-post-image">
+                        {% endif %}
+                    {% endfor %}
+                </div>	
+                <!-- BLOG POST TEXT -->
+                <div class="blog-post-txt">
+
+                    <!-- Post Tag -->
+                    <span class="post-tag color--{{ post.categorie.couleur }}-400">{{ post.categorie }}</span>	
+
+                    <!-- Post Link -->
+                    <h6 class="s-20 w-700">
+                        <a href="{{ post.get_absolute_url }}">{{ post.title }}
+                        </a>
+                    </h6>
+
+                    <!-- Text -->
+                    <p>{{ post.content | truncatechars:30 }}
+                    </p>
+
+                    <!-- Post Meta -->
+                    <div class="blog-post-meta mt-20">
+                        <ul class="post-meta-list ico-10">
+                            <li><p class="p-sm w-500">Par {{ post.author }}</p></li>
+                            <li class="meta-list-divider"><p><span class="flaticon-minus"></span></p></li>
+                            <li><p class="p-sm">{{ post.date_posted | date:'d M Y' }}</p></li>
+                        </ul>
+                    </div>
+
+                </div>	<!-- END BLOG POST TEXT -->
+
+
+             </div>
+         </div>	<!-- END BLOG POST #7 -->
+        {% endfor %}
+
+
+    </div>  <!-- End row -->
+</div>	<!-- END POSTS WRAPPER -->
+
+</div>
+</section>
+{% endblock %}

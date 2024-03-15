@@ -22,6 +22,10 @@ class Categorie(models.Model):
 
     def __str__(self) -> str:
         return self.nom
+    
+    def get_absolute_url(self):
+        return reverse("blog:categorieDetails", kwargs={"id": self.id})
+    
 
 
 class BlogPost(models.Model):
@@ -55,8 +59,16 @@ class itemImage(models.Model):
 class newsletter (models.Model):
     mail = models.EmailField()
 
-    def __str__init(self):
+    def __str__(self):
         return self.mail
+    
+class blogComment(models.Model):
+    nom = models.CharField(max_length=250)
+    mail = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self) -> str:
+        return self.nom
     
 
 class clientMessage(models.Model):

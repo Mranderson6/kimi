@@ -316,9 +316,11 @@
 		/*	Newsletter Subscribe Form
 		/*----------------------------------------------------*/
 	
-		$('.newsletter-form').ajaxChimp({
-        language: 'cm',
-        url: 'https://dsathemes.us3.list-manage.com/subscribe/post?u=af1a6c0b23340d7b339c085b4&id=344a494a6e'
+		$('.newsletters-form').ajaxChimp({
+			type: "POST",
+            data: dataString,
+			language: 'cm',
+			url: '/'
             //http://xxx.xxx.list-manage.com/subscribe/post?u=xxx&id=xxx
 		});
 
