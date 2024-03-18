@@ -71,31 +71,21 @@
 									<div class="comments-wrapper">
 
 										<!-- Title -->	
-										<h5 class="s-24 w-700">4 Comments</h5>
-
+										<h5 class="s-24 w-700">{{ comments.count }} Comments</h5>
+										{% for comment in comments %}
 										<!-- COMMENT #1 -->
 										<div class="comment d-flex">
-
-											<!-- Comment-1 Avatar -->
-										  	<img src="{% static 'images/comment-author-1.jpg' %}" alt="comment-avatar">
-
-										  	<!-- Comment-Body -->
 										  	<div class="comment-body">
 
 										  		<!-- Comment-1 Meta -->
 										 		<div class="comment-meta">
-										 			<h6 class="s-17 w-700">Jack H.</h6>						
-											   		<span class="comment-date">2 days ago&#8194;- </span>
-													<span class="btn-reply ico-20">
-														<a href="#leave-comment"><span class="flaticon-reply-arrow"></span> Reply</a>
-													</span>
+										 			<h6 class="s-17 w-700">{{ comment.nom }}</h6>						
+											   		<span class="comment-date">{{ comment.date_posted | date:'d M Y' }}</span>
+													
 												</div>
 												
 												<!-- Comment-1 Text -->	
-										   		<p class="mb-40">Ratione mollis undo risus aenean arcu lectus rutrum porta 
-										   		   primis and puruss augue luctus neque purus and ipsum neque dolor primis 
-										   		   libero tempus eget tempor ligula posuere varius impedit enim tempor vitae
-										   		   pulvinar at congue egestas vitae augue
+										   		<p class="mb-40"> {{ comment.message }}</p>
 										   		</p>
 
 										   		<hr>
@@ -106,7 +96,7 @@
 
 										</div>	<!-- END COMMENT #1 -->	
 
-
+										{% endfor %}
 										<hr>	
 
 
@@ -122,23 +112,23 @@
 
 											<form name="commentform" method="post" action="{% url 'blog:detail-post' current_one.id %}">
 													{% csrf_token %}
-												<div class="col-md-12 input-message">
+												<div class="col-md-12 input-message mt-2">
 								                	<p class="black--color">Ajouter commentaire <span>*</span></p>
 								                	<textarea class="form-control message" name="message" rows="6" placeholder="Entrer votre Commentaire ici* ..." required></textarea>
 								                </div> 
 						                                            
-								                <div class="col-md-12">
+								                <div class="col-md-12 mt-2">
 								                	<p class="black--color">Nom <span>*</span></p>
 								                	<input type="text" name="name" class="form-control name" placeholder="Entrer votre Nom*" required> 
 								                </div>
 								                        
-								                <div class="col-md-12">
+								                <div class="col-md-12 mt-2">
 								                	<p class="black--color">Email <span>*</span></p>
 								                	<input type="email" name="email" class="form-control email" placeholder="Entrer votre Email*" required> 
 								                </div>
 								                                 
 								                <!-- Contact Form Button -->
-								                <div class="col-lg-12 form-btn"> 						                 
+								                <div class="col-lg-12 form-btn mt-5"> 						                 
 								                	<button type="submit" class="btn btn--theme hover--theme submit">
 								                	   Poster
 								                	</button> 

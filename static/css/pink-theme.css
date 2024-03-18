@@ -9855,7 +9855,7 @@ body.theme--dark {
 
 .theme--dark  .owl-carousel .owl-item img.light-theme-img { display: inline-block; position: absolute; }
 .theme--dark  .owl-carousel .owl-item img.dark-theme-img { display: block; }
-.theme--dark .light-theme-img { display: inline-block; }
+.theme--dark .light-theme-img { display: inline-block; position: absolute; }
 
 .theme--dark .block-shadow { 
   -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, .13); 

@@ -66,6 +66,7 @@ class blogComment(models.Model):
     nom = models.CharField(max_length=250)
     mail = models.EmailField()
     message = models.TextField()
+    date_posted = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self) -> str:
         return self.nom

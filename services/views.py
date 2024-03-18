@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from blog.models import BlogPost, newsletter
+from blog.models import BlogPost, clientMessage, newsletter
 
 
 # Create your views here.
@@ -12,6 +12,12 @@ def home(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        objet = request.POST.get('objet')
+        nom = request.POST.get('nom')
+        message = request.POST.get('message')
+        mail = request.POST.get('email')
+        clientMessage.objects.create(objet=objet, nom=nom, message=message, mail=mail)
     return render(request, 'services/contact.html')
 
 def faq(request):
